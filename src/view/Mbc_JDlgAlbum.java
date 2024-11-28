@@ -6,6 +6,7 @@ package view;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
 import tools.Util;
@@ -22,6 +23,8 @@ public class Mbc_JDlgAlbum extends javax.swing.JFrame {
     public Mbc_JDlgAlbum() {
         initComponents();
         setTitle("Album");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Fecha apenas este JFrame
+        
         setLocationRelativeTo(null);
         Util.habilitar(false, jTxtCodigo, jTxtNome, jTxtTitulo, jTxtGenero, jFmtData, jTxtDescricao, jTxtImagem,
                 jBtnConfirmar, jBtnCancelar);
@@ -37,16 +40,6 @@ public class Mbc_JDlgAlbum extends javax.swing.JFrame {
 
     Mbc_JDlgAlbum(Mbc_JFrmInicial aThis, boolean b) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
-    private void limpar() {
-    jTxtCodigo.setText("");
-    jTxtTitulo.setText("");
-    jTxtGenero.setText("");
-    jTxtNome.setText("");
-    jFmtData.setText("");
-    jTxtDescricao.setText("");
-    jTxtImagem.setText("");
     }
 
     /**

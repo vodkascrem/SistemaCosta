@@ -3,14 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-import DAO.Mbc_MusicaDAO;
-import bean.Mbc_Musica;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
+import tools.Util;
 /**
  *
  * @author vodka
@@ -24,58 +24,17 @@ public class Mbc_JDlgMusica extends javax.swing.JFrame {
     public Mbc_JDlgMusica() {
         initComponents();
         setTitle("Musica");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Fecha apenas este JFrame
         setLocationRelativeTo(null);
-        habilitar();
         try {
             maskData = new MaskFormatter ("##/##/####");
         } catch (ParseException ex) {
             Logger.getLogger(Mbc_JDlgCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
         jFmtData.setFormatterFactory(new DefaultFormatterFactory(maskData));
-    }
-    
-    private void habilitar() {
-        jTxtTitulo.setEnabled(true);
-        jTxtGenero.setEnabled(true);
-        jFmtData.setEnabled(true);
-        jCboAdd.setEnabled(true);
-        jTxtCodigo.setEnabled(true);
-        jTxtImagem.setEnabled(true);
-        jTxtDescricao.setEnabled(true);
         
-        jBtnIncluir.setEnabled(false);
-        jBtnAlterar.setEnabled(false);
-        jBtnExcluir.setEnabled(true);
-        jBtnConfirmar.setEnabled(true);
-        jBtnCancelar.setEnabled(true);
-        jBtnPesquisa.setEnabled(false);
-    }
-    
-    private void desabilitar() {
-        jTxtTitulo.setEnabled(false);
-        jTxtGenero.setEnabled(false);
-        jFmtData.setEnabled(false);
-        jCboAdd.setEnabled(false);
-        jTxtCodigo.setEnabled(false);
-        jTxtImagem.setEnabled(false);
-        jTxtDescricao.setEnabled(false);
-        
-        jBtnIncluir.setEnabled(true);
-        jBtnAlterar.setEnabled(true);
-        jBtnExcluir.setEnabled(false);
-        jBtnConfirmar.setEnabled(false);
-        jBtnCancelar.setEnabled(false);
-        jBtnPesquisa.setEnabled(true);
-    }
-    
-    private void limpar() {
-    jTxtCodigo.setText("");
-    jTxtTitulo.setText("");
-    jTxtGenero.setText("");
-    jCboAdd.setSelectedIndex(0);
-    jFmtData.setText("");
-    jTxtDescricao.setText("");
-    jTxtImagem.setText("");
+        Util.habilitar(false, jTxtCodigo, jCboAdd, jTxtTitulo, jTxtGenero, jFmtData, jTxtDescricao, jTxtImagem,
+                jBtnConfirmar, jBtnCancelar);
     }
 
     /**
@@ -162,7 +121,7 @@ public class Mbc_JDlgMusica extends javax.swing.JFrame {
         });
 
         jBtnConfirmar.setFont(new java.awt.Font("Nexa Heavy", 0, 14)); // NOI18N
-        jBtnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-ok-20.png"))); // NOI18N
+        jBtnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/confirmar1.png"))); // NOI18N
         jBtnConfirmar.setText("Confirmar");
         jBtnConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,7 +139,7 @@ public class Mbc_JDlgMusica extends javax.swing.JFrame {
         });
 
         jBtnPesquisa.setFont(new java.awt.Font("Nexa Heavy", 0, 14)); // NOI18N
-        jBtnPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pesquisar-20.png"))); // NOI18N
+        jBtnPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-pesquisar-15.png"))); // NOI18N
         jBtnPesquisa.setText("Pesquisar");
         jBtnPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,35 +180,8 @@ public class Mbc_JDlgMusica extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jBtnIncluir, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(115, 115, 115)
-                                        .addComponent(jBtnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jBtnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jBtnConfirmar)))
-                                .addGap(18, 18, 18)
-                                .addComponent(jBtnCancelar)
-                                .addGap(18, 18, 18)
-                                .addComponent(jBtnPesquisa)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jFmtData, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(57, 57, 57)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(385, 385, 385))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jTxtImagem)
-                                .addGap(104, 104, 104))))
+                        .addComponent(jLabel3)
+                        .addGap(0, 770, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTxtTitulo)
@@ -263,7 +195,34 @@ public class Mbc_JDlgMusica extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jCboAdd, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(104, 104, 104))))
+                        .addGap(104, 104, 104))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jBtnIncluir, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(115, 115, 115)
+                                        .addComponent(jBtnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jBtnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jBtnConfirmar)))
+                                .addGap(18, 18, 18)
+                                .addComponent(jBtnCancelar)
+                                .addGap(18, 18, 18)
+                                .addComponent(jBtnPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jFmtData, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addGap(281, 281, 281))
+                                    .addComponent(jTxtImagem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(97, 97, 97))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,81 +285,40 @@ public class Mbc_JDlgMusica extends javax.swing.JFrame {
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
-        habilitar();
+        Util.habilitar(true, jTxtCodigo, jCboAdd, jTxtTitulo, jTxtGenero, jFmtData, jTxtDescricao, jTxtImagem,
+                jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisa);
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
-        habilitar();
+        Util.habilitar(true, jTxtCodigo, jCboAdd, jTxtTitulo, jTxtGenero, jFmtData, jTxtDescricao, jTxtImagem,
+                jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisa);
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisaActionPerformed
-        // TODO add your handling code here:
-        String cad = JOptionPane.showInputDialog(null, "Coloque o código da sua música");
-        if (cad == null) {
-            JOptionPane.showMessageDialog(null, "código em branco");
-        } else {
-            Mbc_MusicaDAO mbc_MusicaDAO = new Mbc_MusicaDAO();
-            int cod = Integer.valueOf(cad);
-            Mbc_Musica mbc_musica = (Mbc_Musica) mbc_MusicaDAO.list (cod);
-            cad = String.valueOf( mbc_musica.getMbc_idmusica() );
-            jTxtCodigo.setText(cad);
-            jTxtTitulo.setText(mbc_musica.getMbc_titulo());
-            jTxtGenero.setText(mbc_musica.getMbc_genero());
-            // jFmtData.setText (mbc_album.getMbc_dataLanc());
-            jTxtDescricao.setText(mbc_musica.getMbc_descricao());
-            jTxtImagem.setText(mbc_musica.getMbc_imagem());
-            jCboAdd.setSelectedIndex(mbc_musica.getMbc_addAlbum());
-        }
-        
+       
     }//GEN-LAST:event_jBtnPesquisaActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
-        int resp = JOptionPane.showConfirmDialog(null, "Confirma exclusão", "Deletar registro", JOptionPane.YES_NO_OPTION);
-        if (resp == JOptionPane.YES_OPTION) {
-            Mbc_Musica mbc_musica = new Mbc_Musica();
-            int cod = Integer.parseInt (jTxtCodigo.getText());
-            mbc_musica.setMbc_idmusica(cod);
-            mbc_musica.setMbc_titulo (jTxtTitulo.getText());
-            mbc_musica.setMbc_genero (jTxtGenero.getText());
-            mbc_musica.setMbc_dataLanc (null); // jFmtData.getText()
-            mbc_musica.setMbc_imagem (jTxtImagem.getText());
-            mbc_musica.setMbc_descricao (jTxtDescricao.getText());
-            mbc_musica.setMbc_addAlbum (jCboAdd.getSelectedIndex() );
-
-            Mbc_MusicaDAO mbc_MusicaDAO = new Mbc_MusicaDAO();
-            mbc_MusicaDAO.delete(mbc_musica);
-            System.out.println("rodo");
-        }
-        
-        desabilitar();
-        limpar();
+        Util.limpar(jTxtCodigo, jCboAdd, jTxtTitulo, jTxtGenero, jFmtData, jTxtDescricao, jTxtImagem,
+                jBtnConfirmar, jBtnCancelar);
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
-        Mbc_Musica mbc_musica = new Mbc_Musica();
-        int cod = Integer.parseInt (jTxtCodigo.getText());
-        mbc_musica.setMbc_idmusica(cod);
-        mbc_musica.setMbc_titulo (jTxtTitulo.getText());
-        mbc_musica.setMbc_genero (jTxtGenero.getText());
-        mbc_musica.setMbc_dataLanc (null); // jFmtData.getText()
-        mbc_musica.setMbc_imagem (jTxtImagem.getText());
-        mbc_musica.setMbc_descricao (jTxtDescricao.getText());
-        mbc_musica.setMbc_addAlbum (jCboAdd.getSelectedIndex() );
-        
-        Mbc_MusicaDAO mbc_MusicaDAO = new Mbc_MusicaDAO();
-        mbc_MusicaDAO.insert(mbc_musica);
-        System.out.println("rodo");
-        
-        desabilitar();
-        limpar();
+        Util.habilitar(false, jTxtCodigo, jCboAdd, jTxtTitulo, jTxtGenero, jFmtData, jTxtDescricao, jTxtImagem,
+                jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisa);
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
-        desabilitar();
+        Util.habilitar(false, jTxtCodigo, jCboAdd, jTxtTitulo, jTxtGenero, jFmtData, jTxtDescricao, jTxtImagem,
+                jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisa);
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jTxtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtCodigoActionPerformed
