@@ -43,7 +43,7 @@ public class Mbc_JFrmInicial extends javax.swing.JFrame {
         jMenu1.setText("Cadastro");
 
         jMnuCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMnuCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-usuário-20.png"))); // NOI18N
+        jMnuCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-users-15.png"))); // NOI18N
         jMnuCliente.setText("Clientes");
         jMnuCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,7 +53,7 @@ public class Mbc_JFrmInicial extends javax.swing.JFrame {
         jMenu1.add(jMnuCliente);
 
         jMnuFornecedor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMnuFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-cliente-20.png"))); // NOI18N
+        jMnuFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-gestão-de-cliente-15.png"))); // NOI18N
         jMnuFornecedor.setText("Fornecedores");
         jMnuFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,7 +73,7 @@ public class Mbc_JFrmInicial extends javax.swing.JFrame {
         jMenu1.add(jMnuMusica);
 
         jMnuAlbum.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMnuAlbum.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-produto-20.png"))); // NOI18N
+        jMnuAlbum.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-categories-15.png"))); // NOI18N
         jMnuAlbum.setText("Album");
         jMnuAlbum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,7 +84,7 @@ public class Mbc_JFrmInicial extends javax.swing.JFrame {
         jMenu1.add(jSeparator1);
 
         jMenuSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-saída-de-incêndio-20.png"))); // NOI18N
+        jMenuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-saída-de-incêndio-15.png"))); // NOI18N
         jMenuSair.setText("Sair");
         jMenuSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

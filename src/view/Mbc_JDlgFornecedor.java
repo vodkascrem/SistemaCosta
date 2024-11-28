@@ -3,14 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-import DAO.Mbc_FornecedoresDAO;
-import bean.Mbc_Fornecedores;
-import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.text.DefaultFormatterFactory;
-import javax.swing.text.MaskFormatter;
+import javax.swing.JFrame;
+import tools.Util;
 
 /**
  *
@@ -23,75 +17,12 @@ public class Mbc_JDlgFornecedor extends javax.swing.JFrame {
     public Mbc_JDlgFornecedor() {
         initComponents();
         setTitle("Fornecedor");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Fecha apenas este JFrame
         
         setLocationRelativeTo(null);
-        habilitar();
-    }
-    
-    private void habilitar() {
-        jFmtCodigo.setEnabled(true);
-        jTxtNome.setEnabled(true);
-        jTxtCnpj.setEnabled(true);
-        jTxtEmail.setEnabled(true);
-        jPswSenha.setEnabled(true);
-        jTxtBiografia.setEnabled(true);
-        jTxtTelefone.setEnabled(true);
-        jTxtEndereco.setEnabled(true);
-        jTxtCidade.setEnabled(true);
-        jTxtEstado.setEnabled(true);
-        jTxtCep.setEnabled(true);
-        jTxtData.setEnabled(true);
-        jCboTipo.setEnabled(true);
-        jCboStatus.setEnabled(true);
-        
-        jBtnIncluir.setEnabled(false);
-        jBtnAlterar.setEnabled(false);
-        jBtnExcluir.setEnabled(true);
-        jBtnConfirmar.setEnabled(true);
-        jBtnCancelar.setEnabled(true);
-        jBtnPesquisa.setEnabled(false);
-    }
-    
-    private void desabilitar() {
-        jFmtCodigo.setEnabled(false);
-        jTxtNome.setEnabled(false);
-        jTxtCnpj.setEnabled(false);
-        jTxtEmail.setEnabled(false);
-        jPswSenha.setEnabled(false);
-        jTxtBiografia.setEnabled(false);
-        jTxtTelefone.setEnabled(false);
-        jTxtEndereco.setEnabled(false);
-        jTxtCidade.setEnabled(false);
-        jTxtEstado.setEnabled(false);
-        jTxtCep.setEnabled(false);
-        jTxtData.setEnabled(false);
-        jCboStatus.setEnabled(false);
-        jCboTipo.setEnabled(false);
-        
-        jBtnIncluir.setEnabled(true);
-        jBtnAlterar.setEnabled(true);
-        jBtnExcluir.setEnabled(false);
-        jBtnConfirmar.setEnabled(false);
-        jBtnCancelar.setEnabled(false);
-        jBtnPesquisa.setEnabled(true);
-    }
-    
-    private void limpar() {
-        jFmtCodigo.setText("");
-        jTxtEmail.setText("");
-        jTxtNome.setText("");
-        jPswSenha.setText("");
-        jTxtEndereco.setText("");
-        jTxtCidade.setText("");
-        jTxtEstado.setText("");
-        jTxtTelefone.setText("");
-        jCboStatus.setSelectedIndex(0);
-        jTxtCnpj.setText("");
-        jCboTipo.setSelectedIndex(0);
-        jTxtData.setText("");
-        jTxtCep.setText("");
-        jTxtBiografia.setText("");
-        
+        Util.habilitar(false, jFmtCodigo, jTxtNome, jTxtEmail, jTxtCnpj, jPswSenha, 
+                jTxtEndereco, jTxtBiografia, jTxtCidade, jTxtEstado, jTxtTelefone, jCboStatus,
+                jCboTipo, jBtnConfirmar, jBtnCancelar);
     }
 
     /**
@@ -429,102 +360,43 @@ public class Mbc_JDlgFornecedor extends javax.swing.JFrame {
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
         // TODO add your handling code here:
-        habilitar();
+        Util.habilitar(true, jFmtCodigo, jTxtNome, jTxtEmail, jTxtCnpj, jPswSenha, 
+                jTxtEndereco, jTxtBiografia, jTxtCidade, jTxtEstado, jTxtTelefone, jCboStatus,
+                jCboTipo, jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisa);
     }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
         // TODO add your handling code here:
-        habilitar();
+        Util.habilitar(true, jFmtCodigo, jTxtNome, jTxtEmail, jTxtCnpj, jPswSenha, 
+                jTxtEndereco, jTxtBiografia, jTxtCidade, jTxtEstado, jTxtTelefone, jCboStatus,
+                jCboTipo, jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(false, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisa);
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisaActionPerformed
-        // TODO add your handling code here:
-        String cad = JOptionPane.showInputDialog(null, "Coloque o código da sua música");
-        if (cad == null) {
-            JOptionPane.showMessageDialog(null, "código em branco");
-        } else {
-            Mbc_FornecedoresDAO mbc_FornecedoresDAO = new Mbc_FornecedoresDAO();
-            int cod = Integer.valueOf(cad);
-            Mbc_Fornecedores mbc_fornecedores = (Mbc_Fornecedores) mbc_FornecedoresDAO.list (cod);
-            cad = String.valueOf( mbc_fornecedores.getIdfornecedor() );
-            jFmtCodigo.setText(cad);
-            jTxtNome.setText(mbc_fornecedores.getNome());
-            jTxtEmail.setText(mbc_fornecedores.getEmail());
-            jPswSenha.setText(mbc_fornecedores.getSenha());
-            jTxtCnpj.setText(mbc_fornecedores.getCnpj());
-            // jTxtNasc.setText (mbc_fornecedores.getDataNasc());
-            jTxtEndereco.setText(mbc_fornecedores.getEndereco());
-            jTxtCidade.setText(mbc_fornecedores.getCidade());
-            jTxtEstado.setText(mbc_fornecedores.getEstado());
-            jTxtCep.setText(mbc_fornecedores.getCep());
-            jTxtBiografia.setText(mbc_fornecedores.getDescricao());
-            jTxtTelefone.setText(mbc_fornecedores.getTelefone());
-            jCboTipo.setSelectedIndex(mbc_fornecedores.getTipoFornecedor());
-            jCboStatus.setSelectedIndex(mbc_fornecedores.getStatus());
-        
+
     }//GEN-LAST:event_jBtnPesquisaActionPerformed
 
-    }
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
-        // TODO add your handling code here:
-        int resp = JOptionPane.showConfirmDialog(null, "Confirma exclusão", "Deletar registro", JOptionPane.YES_NO_OPTION);
-        if (resp == JOptionPane.YES_OPTION) {
-            Mbc_Fornecedores mbc_fornecedores = new Mbc_Fornecedores();
-            int cod = Integer.parseInt (jFmtCodigo.getText());
-            mbc_fornecedores.setIdfornecedor (cod);
-            mbc_fornecedores.setNome (jTxtNome.getText());
-            mbc_fornecedores.setEmail (jTxtEmail.getText());
-            mbc_fornecedores.setSenha (jPswSenha.getText());
-            mbc_fornecedores.setTelefone (jTxtTelefone.getText());
-            mbc_fornecedores.setEndereco (jTxtEndereco.getText());
-            mbc_fornecedores.setCidade (jTxtCidade.getText());
-            mbc_fornecedores.setEstado (jTxtEstado.getText());
-            mbc_fornecedores.setCep (jTxtCep.getText());
-            mbc_fornecedores.setCnpj (jTxtCnpj.getText());
-            mbc_fornecedores.setDataCadastro (null);
-            mbc_fornecedores.setDescricao (jTxtBiografia.getText());
-            mbc_fornecedores.setStatus (jCboStatus.getSelectedIndex());
-            mbc_fornecedores.setTipoFornecedor (jCboTipo.getSelectedIndex());
-
-            Mbc_FornecedoresDAO mbc_FornecedoresDAO = new Mbc_FornecedoresDAO() {};
-            mbc_FornecedoresDAO.delete(mbc_fornecedores);
-            System.out.println("rodo");
-        }
-        
-        desabilitar();
-        limpar();
+        Util.limpar(jFmtCodigo, jTxtNome, jTxtEmail, jTxtCnpj, jPswSenha, 
+                jTxtEndereco, jTxtBiografia, jTxtCidade, jTxtEstado, jTxtTelefone, jCboStatus,
+                jCboTipo, jBtnConfirmar, jBtnCancelar);
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
-        Mbc_Fornecedores mbc_fornecedores = new Mbc_Fornecedores();
-        int cod = Integer.parseInt (jFmtCodigo.getText());
-        mbc_fornecedores.setIdfornecedor (cod);
-        mbc_fornecedores.setNome (jTxtNome.getText());
-        mbc_fornecedores.setEmail (jTxtEmail.getText());
-        mbc_fornecedores.setSenha (jPswSenha.getText());
-        mbc_fornecedores.setTelefone (jTxtTelefone.getText());
-        mbc_fornecedores.setEndereco (jTxtEndereco.getText());
-        mbc_fornecedores.setCidade (jTxtCidade.getText());
-        mbc_fornecedores.setEstado (jTxtEstado.getText());
-        mbc_fornecedores.setCep (jTxtCep.getText());
-        mbc_fornecedores.setCnpj (jTxtCnpj.getText());
-        mbc_fornecedores.setDataCadastro (null);
-        mbc_fornecedores.setDescricao (jTxtBiografia.getText());
-        mbc_fornecedores.setStatus (jCboStatus.getSelectedIndex());
-        mbc_fornecedores.setTipoFornecedor (jCboTipo.getSelectedIndex());
-        
-        Mbc_FornecedoresDAO mbc_FornecedoresDAO = new Mbc_FornecedoresDAO() {};
-        mbc_FornecedoresDAO.insert(mbc_fornecedores);
-        System.out.println("rodo");
-        
-        desabilitar();
-        limpar();
+        Util.habilitar(false, jFmtCodigo, jTxtNome, jTxtEmail, jTxtCnpj, jPswSenha, 
+                jTxtEndereco, jTxtBiografia, jTxtCidade, jTxtEstado, jTxtTelefone, jCboStatus,
+                jCboTipo, jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisa);
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
-        // TODO add your handling code here:
-        desabilitar();
+        Util.habilitar(false, jFmtCodigo, jTxtNome, jTxtEmail, jTxtCnpj, jPswSenha, 
+                jTxtEndereco, jTxtBiografia, jTxtCidade, jTxtEstado, jTxtTelefone, jCboStatus,
+                jCboTipo, jBtnConfirmar, jBtnCancelar);
+        Util.habilitar(true, jBtnIncluir, jBtnAlterar, jBtnExcluir, jBtnPesquisa);
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     private void jCboTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCboTipoActionPerformed
