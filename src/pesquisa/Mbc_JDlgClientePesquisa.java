@@ -1,4 +1,6 @@
 package pesquisa;
+
+
 /**
  *
  * @author vodka
@@ -10,6 +12,10 @@ public class Mbc_JDlgClientePesquisa extends javax.swing.JDialog {
         initComponents();
         setTitle("Pequisar em Usuarios");
         setLocationRelativeTo(null);
+    }
+
+    public Mbc_JDlgClientePesquisa() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 

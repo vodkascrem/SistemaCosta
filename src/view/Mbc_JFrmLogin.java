@@ -29,7 +29,6 @@ public class Mbc_JFrmLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
         txtLogin = new javax.swing.JFormattedTextField();
@@ -38,6 +37,7 @@ public class Mbc_JFrmLogin extends javax.swing.JFrame {
         entrar = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         passLogin = new javax.swing.JPasswordField();
+        cancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -48,7 +48,7 @@ public class Mbc_JFrmLogin extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Gotham", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Email ou nome de usuário");
+        jLabel2.setText("Username");
 
         txtLogin.setBackground(new java.awt.Color(55, 55, 54));
         txtLogin.setForeground(new java.awt.Color(255, 255, 255));
@@ -71,7 +71,7 @@ public class Mbc_JFrmLogin extends javax.swing.JFrame {
 
         entrar.setBackground(new java.awt.Color(42, 155, 90));
         entrar.setFont(new java.awt.Font("Gotham", 1, 12)); // NOI18N
-        entrar.setForeground(new java.awt.Color(0, 0, 0));
+        entrar.setForeground(new java.awt.Color(255, 255, 255));
         entrar.setText("Entrar");
         entrar.setToolTipText("");
         entrar.setBorderPainted(false);
@@ -92,15 +92,23 @@ public class Mbc_JFrmLogin extends javax.swing.JFrame {
             }
         });
 
+        cancelar.setBackground(new java.awt.Color(102, 0, 0));
+        cancelar.setFont(new java.awt.Font("Gotham", 1, 12)); // NOI18N
+        cancelar.setForeground(new java.awt.Color(255, 255, 255));
+        cancelar.setText("Cancelar");
+        cancelar.setToolTipText("");
+        cancelar.setBorderPainted(false);
+        cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(109, 109, 109)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(56, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -114,18 +122,17 @@ public class Mbc_JFrmLogin extends javax.swing.JFrame {
                             .addComponent(txtLogin)
                             .addComponent(jLabel3)
                             .addComponent(lembrar)
-                            .addComponent(entrar, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
-                            .addComponent(passLogin))
-                        .addGap(116, 116, 116))))
+                            .addComponent(entrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(passLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(114, 114, 114))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(27, 27, 27)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -137,9 +144,11 @@ public class Mbc_JFrmLogin extends javax.swing.JFrame {
                 .addComponent(lembrar)
                 .addGap(18, 18, 18)
                 .addComponent(entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 48, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -159,7 +168,7 @@ public class Mbc_JFrmLogin extends javax.swing.JFrame {
 
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
         // TODO add your handling code here:
-        new Mbc_JFrmInicial().setVisible (true);
+        passLoginActionPerformed (evt); // É ativado quando clica em entrar
     }//GEN-LAST:event_entrarActionPerformed
 
     private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
@@ -168,16 +177,22 @@ public class Mbc_JFrmLogin extends javax.swing.JFrame {
 
     private void passLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passLoginActionPerformed
         // TODO add your handling code here:
-            String email = txtLogin.getText();
+            String username = txtLogin.getText();
             char[] senhaArray = passLogin.getPassword(); 
             String senha = new String(senhaArray);     
 
-            if (email == "usuario" && senha == "123") {
-                JOptionPane.showMessageDialog(null, "Logado, pode fechar a aba.");
+            if (username.equals("vodka") && senha.equals("123")) {
+                new Mbc_JFrmInicial().setVisible (true);
+                this.dispose(); // Fecha a tela de login
             } else {
                 JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos.");
             }
     }//GEN-LAST:event_passLoginActionPerformed
+
+    private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_cancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,8 +229,8 @@ public class Mbc_JFrmLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cancelar;
     private javax.swing.JButton entrar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

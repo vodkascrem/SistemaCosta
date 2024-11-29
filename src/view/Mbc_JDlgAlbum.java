@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
 import tools.Util;
+
 /**
  *
  * @author vodka
@@ -297,9 +298,9 @@ public class Mbc_JDlgAlbum extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisaActionPerformed
-
+            
     }//GEN-LAST:event_jBtnPesquisaActionPerformed
-
+    
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
         Util.limpar(jTxtCodigo, jTxtNome, jTxtTitulo, jTxtGenero, jFmtData, jTxtDescricao, jTxtImagem,
@@ -442,4 +443,6 @@ public class Mbc_JDlgAlbum extends javax.swing.JFrame {
     private javax.swing.JTextField jTxtNome;
     private javax.swing.JTextField jTxtTitulo;
     // End of variables declaration//GEN-END:variables
+
 }
+

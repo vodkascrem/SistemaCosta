@@ -4,6 +4,7 @@
  */
 package view;
 import javax.swing.JFrame;
+import pesquisa.Mbc_JDlgClientePesquisa;
 import tools.Util;
 
 /**
@@ -375,7 +376,8 @@ public class Mbc_JDlgFornecedor extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisaActionPerformed
-
+        Mbc_JDlgClientePesquisa jDlgCliPesq = new Mbc_JDlgClientePesquisa (null, true);
+        jDlgCliPesq.setVisible (true);
     }//GEN-LAST:event_jBtnPesquisaActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
