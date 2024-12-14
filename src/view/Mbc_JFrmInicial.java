@@ -37,12 +37,14 @@ public class Mbc_JFrmInicial extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenuSair = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu1.setText("Cadastro");
 
-        jMnuCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMnuCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
         jMnuCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-users-15.png"))); // NOI18N
         jMnuCliente.setText("Clientes");
         jMnuCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -52,9 +54,9 @@ public class Mbc_JFrmInicial extends javax.swing.JFrame {
         });
         jMenu1.add(jMnuCliente);
 
-        jMnuFornecedor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMnuFornecedor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         jMnuFornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-gestão-de-cliente-15.png"))); // NOI18N
-        jMnuFornecedor.setText("Fornecedores");
+        jMnuFornecedor.setText("Usuarios");
         jMnuFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMnuFornecedorActionPerformed(evt);
@@ -62,7 +64,7 @@ public class Mbc_JFrmInicial extends javax.swing.JFrame {
         });
         jMenu1.add(jMnuFornecedor);
 
-        jMnuMusica.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMnuMusica.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
         jMnuMusica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/produto.png"))); // NOI18N
         jMnuMusica.setText("Musica");
         jMnuMusica.addActionListener(new java.awt.event.ActionListener() {
@@ -72,7 +74,7 @@ public class Mbc_JFrmInicial extends javax.swing.JFrame {
         });
         jMenu1.add(jMnuMusica);
 
-        jMnuAlbum.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMnuAlbum.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
         jMnuAlbum.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-categories-15.png"))); // NOI18N
         jMnuAlbum.setText("Album");
         jMnuAlbum.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +85,7 @@ public class Mbc_JFrmInicial extends javax.swing.JFrame {
         jMenu1.add(jMnuAlbum);
         jMenu1.add(jSeparator1);
 
-        jMenuSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         jMenuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-saída-de-incêndio-15.png"))); // NOI18N
         jMenuSair.setText("Sair");
         jMenuSair.addActionListener(new java.awt.event.ActionListener() {
@@ -96,6 +98,17 @@ public class Mbc_JFrmInicial extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Movimento");
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-categories-15.png"))); // NOI18N
+        jMenuItem1.setText("Pedidos");
+        jMenu2.add(jMenuItem1);
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/produto.png"))); // NOI18N
+        jMenuItem2.setText("Produtos");
+        jMenu2.add(jMenuItem2);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -116,7 +129,7 @@ public class Mbc_JFrmInicial extends javax.swing.JFrame {
 
     private void jMnuFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuFornecedorActionPerformed
         // TODO add your handling code here:
-        new Mbc_JDlgFornecedor().setVisible (true);
+        new Mbc_JDlgUsuarios().setVisible (true);
     }//GEN-LAST:event_jMnuFornecedorActionPerformed
 
     private void jMnuAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuAlbumActionPerformed
@@ -126,7 +139,7 @@ public class Mbc_JFrmInicial extends javax.swing.JFrame {
 
     private void jMnuClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuClienteActionPerformed
         // TODO add your handling code here:
-        new Mbc_JDlgCliente().setVisible (true);
+        new Mbc_JDlgClientes().setVisible (true);
     }//GEN-LAST:event_jMnuClienteActionPerformed
 
     private void jMnuMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuMusicaActionPerformed
@@ -181,6 +194,8 @@ public class Mbc_JFrmInicial extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuSair;
     private javax.swing.JMenuItem jMnuAlbum;
     private javax.swing.JMenuItem jMnuCliente;

@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
-import pesquisa.Mbc_JDlgClientePesquisa;
+import pesquisa.Mbc_JDlgClientesPesquisa;
 import tools.Util;
 /**
  *
@@ -30,7 +30,7 @@ public class Mbc_JDlgMusica extends javax.swing.JFrame {
         try {
             maskData = new MaskFormatter ("##/##/####");
         } catch (ParseException ex) {
-            Logger.getLogger(Mbc_JDlgCliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Mbc_JDlgClientes.class.getName()).log(Level.SEVERE, null, ex);
         }
         jFmtData.setFormatterFactory(new DefaultFormatterFactory(maskData));
         
@@ -299,7 +299,7 @@ public class Mbc_JDlgMusica extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnAlterarActionPerformed
 
     private void jBtnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPesquisaActionPerformed
-       Mbc_JDlgClientePesquisa jDlgCliPesq = new Mbc_JDlgClientePesquisa (null, true);
+       Mbc_JDlgClientesPesquisa jDlgCliPesq = new Mbc_JDlgClientesPesquisa (null, true);
        jDlgCliPesq.setVisible (true);
     }//GEN-LAST:event_jBtnPesquisaActionPerformed
 

@@ -32,7 +32,7 @@ public class Mbc_JDlgAlbum extends javax.swing.JFrame {
         try {
             maskData = new MaskFormatter ("##/##/####");
         } catch (ParseException ex) {
-            Logger.getLogger(Mbc_JDlgCliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Mbc_JDlgClientes.class.getName()).log(Level.SEVERE, null, ex);
         }
         jFmtData.setFormatterFactory(new DefaultFormatterFactory(maskData));
        
